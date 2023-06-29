@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Teste {
     public static void main(String[] args) {
 
-        Map<String, Double> produtos = new HashMap<String, Double>();
+        Produtos produtos = new Produtos();
 
         Scanner resposta = new Scanner(System.in);
 
@@ -23,14 +23,17 @@ public class Teste {
             switch (selecao){
                 case 1:
                     System.out.println("Digite o nome e o preço do produto que você quer adicionar:");
-                    produtos.put(resposta.next(), resposta.nextDouble());
+                    produtos.getProdutos().put(resposta.next(), resposta.nextDouble());
                     break;
                 case 2:
                     System.out.println("Digite o nome do produto que você quer remover:");
-                    produtos.remove(resposta.next());
+                    produtos.getProdutos().remove(resposta.next());
                     break;
                 case 3:
-                        System.out.println(produtos);
+                        for (String chave : produtos.getProdutos().keySet()){
+                            Double preco = produtos.getProdutos().get(chave);
+                            System.out.printf(chave + ": R$ %,.2f%n", preco);
+                        }
                     break;
                 case 4:
                     i = 1;

@@ -7,7 +7,6 @@ import java.util.Scanner;
 
 public class Produtos {
 
-    //Inutilizado por motivos de não sei
     private Map<String, Double> produtos = new HashMap<String, Double>();
 
     public Map<String, Double> getProdutos() {
@@ -18,7 +17,7 @@ public class Produtos {
         this.produtos = produtos;
     }
 
-    public void adicionarProduto(Produtos teste){
+    /*public void adicionarProduto(Produtos teste){
         Scanner resposta = new Scanner(System.in);
         System.out.println("Digite o nome e o preço do produto:");
         teste.getProdutos().put(resposta.next(), resposta.nextDouble());
@@ -34,5 +33,5 @@ public class Produtos {
         Scanner resposta = new Scanner(System.in);
         System.out.println("Digite o nome do produto que deseja excluir");
         teste.getProdutos().remove(resposta.next());
-    };
+    };*/
 }

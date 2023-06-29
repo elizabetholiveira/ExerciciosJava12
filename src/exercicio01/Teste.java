@@ -1,7 +1,5 @@
-package Exercicio01;
+package exercicio01;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Teste {

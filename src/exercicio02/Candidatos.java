@@ -7,11 +7,18 @@ public class Candidatos {
 
     private Map<Integer, Double> candidatos = new HashMap<>();
 
-    public Map<Integer, Double> getCandidatos() {
-        return candidatos;
+    public void adicionarProduto(Integer matricula, Double nota){
+        this.candidatos.put(matricula,nota);
     }
 
-    public void setCandidatos(Map<Integer, Double> candidatos) {
-        this.candidatos = candidatos;
+    public void exibirProdutos(){
+        for (Integer chave : candidatos.keySet()){
+            Double nota = candidatos.get(chave);
+            System.out.println("Matrícula: " + chave + " | Nota: " + nota);
+        }
+    }
+
+    public void excluirProduto(Integer matricula){
+        this.candidatos.remove(matricula);
     }
 }

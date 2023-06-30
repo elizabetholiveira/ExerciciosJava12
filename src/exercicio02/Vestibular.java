@@ -21,17 +21,14 @@ public class Vestibular {
             switch (selecao){
                 case 1:
                     System.out.println("Digite o número da matrícula e a nota do candidato que você quer adicionar:");
-                    candidatos.getCandidatos().put(resposta.nextInt(), resposta.nextDouble());
+                    candidatos.adicionarProduto(resposta.nextInt(), resposta.nextDouble());
                     break;
                 case 2:
                     System.out.println("Digite o número de matrícula do candidato que você quer que você quer remover:");
-                    candidatos.getCandidatos().remove(resposta.nextInt());
+                    candidatos.excluirProduto(resposta.nextInt());
                     break;
                 case 3:
-                    for (Integer chave : candidatos.getCandidatos().keySet()){
-                        Double nota = candidatos.getCandidatos().get(chave);
-                        System.out.println("Matrícula: " + chave + " | Nota: " + nota);
-                    }
+                    candidatos.exibirProdutos();
                     break;
                 case 4:
                     i = 1;

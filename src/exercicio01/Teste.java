@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Teste {
     public static void main(String[] args) {
 
-        Produtos produtos = new Produtos();
+        Estabelecimento estabelecimento = new Estabelecimento();
 
         Scanner resposta = new Scanner(System.in);
 
@@ -21,17 +21,14 @@ public class Teste {
             switch (selecao){
                 case 1:
                     System.out.println("Digite o nome e o preço do produto que você quer adicionar:");
-                    produtos.getProdutos().put(resposta.next(), resposta.nextDouble());
+                    estabelecimento.adicionarProduto(resposta.next(), resposta.nextDouble());
                     break;
                 case 2:
                     System.out.println("Digite o nome do produto que você quer remover:");
-                    produtos.getProdutos().remove(resposta.next());
+                    estabelecimento.excluirProduto(resposta.next());
                     break;
                 case 3:
-                        for (String chave : produtos.getProdutos().keySet()){
-                            Double preco = produtos.getProdutos().get(chave);
-                            System.out.printf(chave + ": R$ %,.2f%n", preco);
-                        }
+                    estabelecimento.exibirProdutos();
                     break;
                 case 4:
                     i = 1;

@@ -1,18 +1,14 @@
 package exercicio03;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Restaurante {
 
     public static void main(String[] args) {
 
-        Cardapio pratos = new Cardapio();
+        Cardapio novoPrato = new Cardapio();
 
         Scanner resposta = new Scanner(System.in);
-
-        List<String> ingredientes = new ArrayList<>();
 
         int i = 0;
         while (i == 0) {
@@ -20,30 +16,36 @@ public class Restaurante {
             System.out.println("1) Adicionar prato");
             System.out.println("2) Remover prato");
             System.out.println("3) Ver cardápio");
-            System.out.println("4) Adicionar ingrediente na lista");
-            System.out.println("5) Sair");
+            System.out.println("4) Sair");
             int selecao = resposta.nextInt();
 
             switch (selecao){
                 case 1:
-                    System.out.println("Digite o nome do prato que quer adicionar:");
-                    pratos.getPratos().put(resposta.next(),ingredientes);
+                    boolean adicionar = true;
+                    while (adicionar) {
+                        resposta.nextLine();
+                        System.out.println("Digite o ingrediente:");
+                        novoPrato.adicionarIngrediente(resposta.nextLine());
+                        System.out.println("Deseja adicionar mais um ingrediente? (s/n)");
+                        String deNovo = resposta.next();
+                        if (deNovo.equalsIgnoreCase("n")){
+                            adicionar = false;
+                            resposta.nextLine();
+                        }
+                    }
+                    System.out.println("Digite o nome do prato:");
+                    novoPrato.adicionarNomePrato(resposta.nextLine());
+                    novoPrato.adicionarPrato();
                     break;
                 case 2:
-                    System.out.println("Digite o nome do prato que você quer remover:");
-                    pratos.getPratos().remove(resposta.nextInt());
+                    resposta.nextLine();
+                    System.out.println("Digite o nome do prato que deseja remover:");
+                    novoPrato.removerPrato(resposta.nextLine());
                     break;
                 case 3:
-                    for (String chave : pratos.getPratos().keySet()){
-                        List<String> itens = pratos.getPratos().get(chave);
-                        System.out.println("Prato: " + chave + " | Ingredientes: " + itens);
-                    }
+                    novoPrato.exibirPratos();
                     break;
                 case 4:
-                    System.out.println("Digite o ingrediente que você quer adicionar");
-                    ingredientes.add(resposta.next());
-                    break;
-                case 5:
                     i = 1;
                     break;
             }
